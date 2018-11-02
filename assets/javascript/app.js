@@ -22,11 +22,11 @@ $(document).ready(function() {
         selectedAnswer = $(this).text();
         if(selectedAnswer === correctAnswers[questionCounter]) {
     
-            clearInterval(theClock);
+            clearInterval(Clock);
             generateWin();
         }
         else {
-            clearInterval(theClock);
+            clearInterval(Clock);
             generateLoss();
         }
     }); 
@@ -40,23 +40,24 @@ $(document).ready(function() {
     
     function generateLossDueToTimeOut() {
         unansweredTally++;
-        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/wrong.jpg'>";
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 2000); 
+        setTimeout(wait, 2500); 
     }
     
     function generateWin() {
         correctTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + imageArray[questionCounter];
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 2000);  
+        setTimeout(wait, 2500); 
+        console.log(gameHTML) 
     }
     
     function generateLoss() {
         incorrectTally++;
-        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/wrong.jpg'>";
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 2000);
+        setTimeout(wait, 2500);
     }
     
     function generateHTML() {
@@ -77,10 +78,10 @@ $(document).ready(function() {
     }
     
     function timerWrapper() {
-        theClock = setInterval(thirtySeconds, 1000);
+        Clock = setInterval(thirtySeconds, 1000);
         function thirtySeconds() {
             if (counter === 0) {
-                clearInterval(theClock);
+                clearInterval(Clock);
                 generateLossDueToTimeOut();
             }
             if (counter > 0) {
@@ -124,6 +125,7 @@ $(document).ready(function() {
     "The name of King Tommens favorite cat is?",
     "What was the name of Ned Starks greatsword?",
     "Who shoots the flaming arror that subsequently destroys Stannis' fleet in Blackwater Bay?"];
+
     var answerArray = 
     [["Walkers", "Wights", "Zombies", "Creepy Claws"], 
     ["Tyrion Lannister","Lord Baelish","Jaime Lannister","Varys"], 
@@ -141,11 +143,28 @@ $(document).ready(function() {
     ["Oathkeeper","Widows Wail","Longclaw","Ice"],
     ["Tyrion","Joffrey","Jaime","Bronn"]
     ];
-    var imageArray = ["<img class='center-block img-right' src='img/australia.png'>", "<img class='center-block img-right' src='img/liberia.png'>", "<img class='center-block img-right' src='img/taiwan.png'>", "<img class='center-block img-right' src='img/japan.png'>", "<img class='center-block img-right' src='img/china.png'>", "<img class='center-block img-right' src='img/turkey.png'>", "<img class='center-block img-right' src='img/colombia.png'>", "<img class='center-block img-right' src='img/india.png'>"];
+
+    var imageArray = 
+    ["<img class='center-block img-right' src='assets/images/wight.png'>", 
+    "<img class='center-block img-right' src='assets/images/tyrion.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/dragonglass.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/oberyn.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/daenerys.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/valer.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/narnia.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/sand.jpg'>",
+    "<img class='center-block img-right' src='assets/images/valyrian.jpg'>",
+    "<img class='center-block img-right' src='assets/images/beric.jpeg'>",
+    "<img class='center-block img-right' src='assets/images/lady.jpg'>",
+    "<img class='center-block img-right' src='assets/images/arya.jpg'>",
+    "<img class='center-block img-right' src='assets/images/pounce.jpg'>",
+    "<img class='center-block img-right' src='assets/images/ned.jpg'>",
+    "<img class='center-block img-right' src='assets/images/bronn.jpg'>"];
+
     var correctAnswers = ["B. Wights", "A. Tyrion Lannister", "B. Dragonglass", "B. Knowledge of poisons", "B. Funeral Pyre", "A. All Men Must Die", "C. Chronicles of Narnia", "A. Sand", "C. Valyrian Steel", "D. Six", "B. Lady", "C. Blindness", "A. Ser Pounce", "D. Ice", "D. Bronn"];
     var questionCounter = 0;
     var selecterAnswer;
-    var theClock;
+    var Clock;
     var correctTally = 0;
     var incorrectTally = 0;
     var unansweredTally = 0;
