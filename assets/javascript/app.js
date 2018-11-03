@@ -43,7 +43,7 @@ var startScreen;
     "<img class='center-block img-right' src='assets/images/oberyn.gif'>", 
     "<img class='center-block img-right' src='assets/images/daenerys.gif'>", 
     "<img class='center-block img-right' src='assets/images/valer.gif'>", 
-    "<img class='center-block img-right' src='assets/images/narnia.jpg'>", 
+    "<img class='center-block img-right' src='assets/images/narnia.gif'>", 
     "<img class='center-block img-right' src='assets/images/wildfire.gif'>",
     "<img class='center-block img-right' src='assets/images/valyrian.gif'>",
     "<img class='center-block img-right' src='assets/images/beric.gif'>",
@@ -108,14 +108,14 @@ $(document).ready(function() {
         unansweredTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/wrong.jpg'>";
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 2500); 
+        setTimeout(wait, 4000); 
     }
     
     function generateWin() {
         correctTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + imageArray[questionCounter];
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 2500); 
+        setTimeout(wait, 4000); 
         console.log(gameHTML) 
     }
     
@@ -123,7 +123,7 @@ $(document).ready(function() {
         incorrectTally++;
         gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/wrong.gif'>";
         $(".mainArea").html(gameHTML);
-        setTimeout(wait, 2500);
+        setTimeout(wait, 4000);
     }
     
     function generateHTML() {

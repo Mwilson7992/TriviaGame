@@ -16,15 +16,15 @@
   }
   
   .answer:hover {
-    background: pink;
+    background: green;
   }
   
   .answer {
     padding-top: 7px;
     height: 45px;
-    color: black;
+    color: white;
     padding-left: 14px;
-    background-color: white;
+    background-color: black;
     border-radius: 4px;
   }
   
@@ -45,7 +45,6 @@
   }
   
   body {
-    /* background-color: black; */
     color: white;
     background: url("../images/wall.jpg");
     background-size: cover;
