@@ -60,7 +60,9 @@ var startScreen;
     var correctTally = 0;
     var incorrectTally = 0;
     var unansweredTally = 0;
-    var clickSound = new Audio("sound/button-click.mp3");
+    var clickSound = new Audio("./assets/sounds/click.wav");
+    var gameSound = new Audio('./assets/sounds/theme.mp3')
+
     
 $(document).ready(function() {
     
@@ -76,7 +78,7 @@ $(document).ready(function() {
         event.preventDefault(); 
         clickSound.play();
         generateHTML();
-    
+        gameSound.play();
         timerWrapper();
     
     }); 
@@ -119,7 +121,7 @@ $(document).ready(function() {
     
     function generateLoss() {
         incorrectTally++;
-        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/wrong.jpg'>";
+        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/wrong.gif'>";
         $(".mainArea").html(gameHTML);
         setTimeout(wait, 2500);
     }
@@ -156,7 +158,7 @@ $(document).ready(function() {
     }
     
     function finalScreen() {
-        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>" + "<img class='center-block img-wrong' src='assets/images/wrong.jpg'>";
+        gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<img class='center-block img-wrong' src='assets/images/thunk.gif'>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
         $(".mainArea").html(gameHTML);
     }
     
