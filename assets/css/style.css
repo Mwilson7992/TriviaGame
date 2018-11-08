@@ -49,3 +49,75 @@
     background: url("../images/wall.jpg");
     background-size: cover;
   }
+
+  /* /Media Queries */
+  
+  @media only screen and (max-width: 640px) {
+    #logo {
+      width:100%;
+      position: center;
+    }
+    nav a {
+      width:100%;
+      display: inline-block;
+          padding: 1em;
+      text-decoration: none;
+      margin: center;
+    }
+    .main-section{
+      float: left;
+    }
+    .auth-image{
+      float: left;
+      width: 100%;
+    }
+    .nav-item{
+      display: inline;
+      margin-right: 50px;
+    }
+    #masthead{
+      position: static;
+    }
+    .container {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    
+  
+  }
+  
+  
+  
+  @media only screen and (max-width: 768px) {
+      
+    .work{
+      width: 50%;
+      float: left;
+    }
+  
+    .container {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  
+    .nav-item {
+      margin-right: 25px;
+    }
+    #masthead{
+      position:static;
+    }
+    .work{
+      margin-left: 25%;
+    }
+  
+  }
+  
+  
+  @media only screen and (max-width: 980px) {
+  
+  .container {
+    max-width: 980px;
+  }
+  
+  
+  }
